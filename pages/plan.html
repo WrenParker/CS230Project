@@ -13,9 +13,14 @@
 </head>
 
 <style media="screen">
-  .btn:focus{
+  *:btn:focus{
     outline:none;
   }
+  *{
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
 </style>
 
 <body>
@@ -37,35 +42,43 @@
     </div>
   </nav>
 
-  <div class="sidenav"
-       style="background-color: #818181;
-              width: 10vw;
-              height: 94vh;">
-      <h3 class="font-weight-bold text-center pt-2">
-        My Garden
-      </h3>
-      <div class="row pt-5">
-        <div class="col-sm-12">
-          <button class="btn btn-block">
-            Create New Garden
-          </button>
+  <div class="row">
+    <nav class="sidenav col-sm-2"
+         style="background-color: #818181;
+                width: 10vw;
+                height: 95vh;">
+        <h3 class="font-weight-bold text-center pt-2">
+          My Garden
+        </h3>
+        <div class="row pt-5">
+          <div class="col-sm-12">
+            <button class="btn btn-block">
+              Create New Garden
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="row pt-5">
-        <div class="col-sm-12">
-          <button class="btn btn-block">
-            Edit My Gardens
-          </button>
+        <div class="row pt-5">
+          <div class="col-sm-12">
+            <button class="btn btn-block">
+              Edit My Gardens
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="row pt-5">
-        <div class="col-sm-12">
-          <button class="btn btn-block">
-            Planting Calendar
-          </button>
+        <div class="row pt-5">
+          <div class="col-sm-12">
+            <button class="btn btn-block">
+              Planting Calendar
+            </button>
+          </div>
         </div>
-      </div>
+    </nav>
+    <div class="col-sm-10 jumbotron" id="body">
+
+    </div>
   </div>
+
+
+
 
 
   <script src="../jquery/jquery.slim.min.js"></script>
