@@ -21,3 +21,25 @@
   display:block;
   width: auto;
 }
+
+.form-group{
+  text-align: center;
+  box-sizing: initial;
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  margin: auto;
+}
+
+.form-group input[type = "email"]{
+  margin-bottom: 10px;
+}
+
+.form-group input[type = "password"]{
+  margin-bottom: 25px;
+}
+
+h5{
+  color: aliceblue;
+}
+
