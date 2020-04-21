@@ -34,6 +34,46 @@ create_garden = `
 </div>
 `;
 
+view_garden = `
+<div class="card">
+  <div class="card-header">
+    My Gardens
+  </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li id="existing-garden" class="list-group-item list-group-item d-flex justify-content-between align-items-center">
+        Garden 1
+        <div class="btn-group">
+          <button type="button" class="btn btn-success">View</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </li>
+      <li id="existing-garden" class="list-group-item list-group-item d-flex justify-content-between align-items-center">
+        Garden 2
+        <div class="btn-group">
+          <button type="button" class="btn btn-success">View</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </li>
+      <li id="existing-garden" class="list-group-item list-group-item d-flex justify-content-between align-items-center">
+        Garden 3
+        <div class="btn-group">
+          <button type="button" class="btn btn-success">View</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </li>
+      <li id="existing-garden" class="list-group-item list-group-item d-flex justify-content-between align-items-center">
+        Garden 4
+        <div class="btn-group">
+          <button type="button" class="btn btn-success">View</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
 garden_calendar = `
 <div class="row">
   <div class="col-sm-2">
@@ -77,7 +117,7 @@ document.getElementById("create-btn").addEventListener("click", function(){
 });
 
 document.getElementById("view-btn").addEventListener("click", function(){
-  document.getElementById("body").innerHTML = "Hello World";
+  document.getElementById("body").innerHTML = view_garden;
 });
 
 document.getElementById("calendar-btn").addEventListener("click", function(){
