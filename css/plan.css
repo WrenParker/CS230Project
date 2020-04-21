@@ -1,0 +1,22 @@
+.grid{
+  display: grid;
+  width: 100%;
+  height: 80vh;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1em;
+}
+
+.plot{
+  height: 100%;
+  width: 100%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.content{
+  display:block;
+  width: auto;
+}
