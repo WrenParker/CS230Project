@@ -1,0 +1,18 @@
+img {
+
+  background-color: black;
+
+}
+
+.row {
+
+  display: inline-flex;
+  width: 100%;
+
+}
+
+.col {
+
+  padding-top: 20px;
+
+}
