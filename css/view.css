@@ -1,18 +1,18 @@
 img {
 
-  background-color: black;
+  width: 225px;
+  height: 225px;
+  object-fit: cover;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border: 2px solid black;
 
 }
 
-.row {
+h4.centerText {
 
-  display: inline-flex;
-  width: 100%;
-
-}
-
-.col {
-
-  padding-top: 20px;
+  padding-bottom: 50px;
+  position: fixed;
+  left: 100px;
 
 }
