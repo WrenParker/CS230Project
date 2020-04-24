@@ -42,7 +42,7 @@ create_garden = `
             </div>
             <div class="col-sm-8">
               <div class="dropdown">
-                <button type="button" id="dropdown" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                <button type="button" id="dropdown" class="btn btn-block btn-primary dropdown-toggle" data-toggle="dropdown">
                   Corn
                 </button>
                 <div class="dropdown-menu">
@@ -57,6 +57,52 @@ create_garden = `
                   <a class="dropdown-item" onClick="changeColor(this)">Strawberry</a>
                   <a class="dropdown-item" onClick="changeColor(this)">Corn</a>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class="col-sm-4 pt-1">
+              <h4>Soil Type:</h4>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="width" placeholder="Topsoil" value="">
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class="col-sm-4 pt-1">
+              <h4>Location:</h4>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="width" placeholder="Morgantown" value="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-5">
+        <div class="card">
+          <div class="card-header text-center">
+            <h3 class="pt-2">Finish</h3>
+          </div>
+          <div class="card-body">
+            <div class="row pb-3">
+              <div class="col px-5">
+                <button type="button" class="btn btn-block btn-success" name="button">
+                  Checkout
+                </button>
+              </div>
+            </div>
+            <div class="row pb-3">
+              <div class="col px-5">
+                <button type="button" class="btn btn-block btn-secondary" name="button">
+                  Save
+                </button>
+              </div>
+            </div>
+            <div class="row pb-3">
+              <div class="col px-5">
+                <button type="button" class="btn btn-block btn-info" name="button">
+                  Share
+                </button>
               </div>
             </div>
           </div>
@@ -157,7 +203,7 @@ document.getElementById("create-btn").addEventListener("click", function(){
   multiplyPlots(initSize);
 });
 
-let currentColor = 'blue';
+let currentColor = 'yellow';
 
 function fill(e) {
   if(e.style.backgroundColor == currentColor) {
@@ -175,7 +221,7 @@ function changeColor(e) {
 
   }
   if(e.innerHTML==="Corn") {
-    currentColor = 'blue';
+    currentColor = 'yellow';
     button.innerHTML = "Corn";
 
   }
