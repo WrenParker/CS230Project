@@ -126,31 +126,31 @@ view_garden = `
   </div>
   <div class="card-body">
     <ul class="list-group">
-      <li id="existing-garden" class="list-group-item list-group-item d-flex justify-content-between align-items-center">
+      <li id="garden1" class="list-group-item list-group-item d-flex justify-content-between align-items-center">
         Garden 1
         <div class="btn-group">
-          <button type="button" class="btn btn-success">View</button>
+          <button type="button" class="btn btn-success" onClick="createGarden(this)">View</button>
           <button type="button" class="btn btn-danger">Delete</button>
         </div>
       </li>
-      <li id="existing-garden" class="list-group-item list-group-item d-flex justify-content-between align-items-center">
+      <li id="garden2" class="list-group-item list-group-item d-flex justify-content-between align-items-center">
         Garden 2
         <div class="btn-group">
-          <button type="button" class="btn btn-success">View</button>
+          <button type="button" class="btn btn-success" onClick="createGarden(this)">View</button>
           <button type="button" class="btn btn-danger">Delete</button>
         </div>
       </li>
-      <li id="existing-garden" class="list-group-item list-group-item d-flex justify-content-between align-items-center">
+      <li id="garden3" class="list-group-item list-group-item d-flex justify-content-between align-items-center">
         Garden 3
         <div class="btn-group">
-          <button type="button" class="btn btn-success">View</button>
+          <button type="button" class="btn btn-success" onClick="createGarden(this)">View</button>
           <button type="button" class="btn btn-danger">Delete</button>
         </div>
       </li>
-      <li id="existing-garden" class="list-group-item list-group-item d-flex justify-content-between align-items-center">
+      <li id="garden4" class="list-group-item list-group-item d-flex justify-content-between align-items-center">
         Garden 4
         <div class="btn-group">
-          <button type="button" class="btn btn-success">View</button>
+          <button type="button" class="btn btn-success" onClick="createGarden(this)">View</button>
           <button type="button" class="btn btn-danger">Delete</button>
         </div>
       </li>
@@ -160,30 +160,33 @@ view_garden = `
 `;
 
 garden_calendar = `
-<div class="row">
-  <div class="col-sm-2">
-
-  </div>
-  <div class="col-sm-5">
-    <div class="btn-group">
-      <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown">
-        Select Garden
-      </button>
+<div class="col-sm-2"></div>
+<div class="col-sm-8 mx-auto">
+  <div class="row">
+    <div class="col">
+      <div class="dropdown">
+        <button type="button" id="dropdown" class="btn btn-block btn-outline-primary dropdown-toggle" data-toggle="dropdown">
+          Garden 1
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" >Garden 1</a>
+          <a class="dropdown-item" >Garden 2</a>
+          <a class="dropdown-item" >Garden 3</a>
+          <a class="dropdown-item" >Garden 4</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-block btn-outline-secondary" name="button">export</button>
     </div>
   </div>
-  <div class="col-sm-5">
-    <button type="button" class="btn btn-outline-secondary">
-      Export
-    </button>
+  <div class="row pt-5">
+    <div class="col">
+      <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=d3JlbnBhcmtlckBnbWFpbC5jb20&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%237986CB&amp;showTitle=0&amp;showPrint=0" class="ml-5" style="border:solid 1px #777;" width="1000" height="700" frameborder="0" scrolling="no"></iframe>
+    </div>
   </div>
 </div>
-<div class="row mt-2">
-  <div class="col-sm-1"></div>
-  <div class="col-sm-10">
-    <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=d3JlbnBhcmtlckBnbWFpbC5jb20&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%237986CB&amp;showTitle=0&amp;showPrint=0" class="ml-5" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-  </div>
-  <div class="col-sm-1"></div>
-</div>
+<div class="col-sm-2"></div>
 `;
 
 let initSize = 100
@@ -199,8 +202,17 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.getElementById("create-btn").addEventListener("click", function(){
+  resetValues();
   document.getElementById("body").innerHTML = create_garden;
   multiplyPlots(initSize);
+});
+
+document.getElementById("view-btn").addEventListener("click", function(){
+  document.getElementById("body").innerHTML = view_garden;
+});
+
+document.getElementById("calendar-btn").addEventListener("click", function(){
+  document.getElementById("body").innerHTML = garden_calendar;
 });
 
 let currentColor = 'yellow';
@@ -264,10 +276,25 @@ function changeSize(e) {
   }
 }
 
-document.getElementById("view-btn").addEventListener("click", function(){
-  document.getElementById("body").innerHTML = view_garden;
-});
+function resetValues() {
+  let style = `.grid{
+    grid-row: 1;
+    grid-column: 1;
+    display: grid;
+    width: 100%;
+    height: 80vh;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 1em;
 
-document.getElementById("calendar-btn").addEventListener("click", function(){
-  document.getElementById("body").innerHTML = garden_calendar;
-});
+  }`;
+  document.getElementById('grid-style').innerHTML = style;
+  let initSize = 100;
+}
+
+function createGarden(e) {
+  document.getElementById("body").innerHTML = create_garden;
+  multiplyPlots(initSize);
+}
+
+
