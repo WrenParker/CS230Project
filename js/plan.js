@@ -27,13 +27,13 @@ create_garden = `
               <h4>Size:</h4>
             </div>
             <div class="col-sm-3">
-              <input type="text" class="form-control" id="width" name="" value="10">
+              <input type="text" class="form-control" onChange="changeSize(this)" id="width" name="" value="10">
             </div>
             <div class="col-sm-2 pt-2">
               <h6>X</h6>
             </div>
             <div class="col-sm-3">
-              <input type="text" class="form-control" id="height" name="" value="10">
+              <input type="text" class="form-control" onChange="changeSize(this)" id="height" name="" value="10">
             </div>
           </div>
           <div class="row pt-3">
@@ -140,19 +140,21 @@ garden_calendar = `
 </div>
 `;
 
-function multiplyPlots() {
+let initSize = 100
+
+function multiplyPlots(size) {
   plot = document.getElementById('garden-plot');
-  [...Array(99)].forEach(_ => plot.parentNode.insertBefore(plot.cloneNode(true), plot));
+  [...Array(size-1)].forEach(_ => plot.parentNode.insertBefore(plot.cloneNode(true), plot));
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-document.getElementById("body").innerHTML = create_garden;
-  multiplyPlots();
+  document.getElementById("body").innerHTML = create_garden;
+  multiplyPlots(initSize);
 });
 
 document.getElementById("create-btn").addEventListener("click", function(){
   document.getElementById("body").innerHTML = create_garden;
-  multiplyPlots();
+  multiplyPlots(initSize);
 });
 
 let currentColor = 'blue';
@@ -181,6 +183,42 @@ function changeColor(e) {
     currentColor = 'red';
     button.innerHTML = "Strawberry";
 
+  }
+}
+
+function changeSize(e) {
+  let width = document.getElementById('width').value;
+  let height =document.getElementById('height').value;
+
+  if(width>40) {
+    alert("Max Width is 40!")
+  }
+
+  else if(height>25) {
+    alert("Max Height is 25!")
+  }
+
+  else {
+    document.getElementById("body").innerHTML = create_garden;
+    let style = `.grid{
+      grid-row: 1;
+      grid-column: 1;
+      display: grid;
+      width: 100%;
+      height: 80vh;
+      grid-template-rows: repeat(${height}, 1fr);
+      grid-template-columns: repeat(${width}, 1fr);
+      grid-gap: 1em;
+
+    }
+    *{
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }`
+    document.getElementById('grid-style').innerHTML = style;
+    multiplyPlots(width*height);
+    document.getElementById('height').value = height;
+    document.getElementById('width').value = width;
   }
 }
 
