@@ -15,18 +15,10 @@ create_garden = `
     </button>
   </div>
   </div>
-  <div class="grid pt-2" id="garden-grid">
-    <div class="plot" id="garden-plot">
-      <div class="content ml-5 mt-3">
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" value="">Active Plot
-          </label>
-        </div>
-        <div class="btn-group">
-          <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown">
-            Seed Type
-          </button>
+  <div class="create-wrapper">
+    <div class="grid pt-2" id="garden-grid">
+      <div class="plot" id="garden-plot" onClick="fill(this)">
+        <div class="content ml-5 mt-3">
         </div>
       </div>
     </div>
@@ -103,7 +95,7 @@ garden_calendar = `
 
 function multiplyPlots() {
   plot = document.getElementById('garden-plot');
-  [...Array(35)].forEach(_ => plot.parentNode.insertBefore(plot.cloneNode(true), plot));
+  [...Array(99)].forEach(_ => plot.parentNode.insertBefore(plot.cloneNode(true), plot));
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -115,6 +107,15 @@ document.getElementById("create-btn").addEventListener("click", function(){
   document.getElementById("body").innerHTML = create_garden;
   multiplyPlots();
 });
+
+
+function fill(e) {
+  if(e.style.backgroundColor == 'blue') {
+    e.style.backgroundColor = '';
+  } else if(e.style.backgroundColor == '') {
+    e.style.backgroundColor = 'blue';
+  }
+}
 
 document.getElementById("view-btn").addEventListener("click", function(){
   document.getElementById("body").innerHTML = view_garden;

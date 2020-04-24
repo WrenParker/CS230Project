@@ -1,16 +1,34 @@
+.create-wrapper {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 3fr 1fr;
+}
+
 .grid{
+  grid-row: 1;
+  grid-column: 1;
   display: grid;
   width: 100%;
   height: 80vh;
-  grid-template-rows: repeat(6, 1fr);
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   grid-gap: 1em;
-  
+
 }
 
 .plot{
-  height: 100%;
-  width: 100%;
+  height: 1em;
+  width: 1em;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.plot:hover{
+  background-color: blue;
+  height: 1em;
+  width: 1em;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   border-left: 1px solid black;
