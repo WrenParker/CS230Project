@@ -210,10 +210,6 @@ function changeSize(e) {
       grid-template-columns: repeat(${width}, 1fr);
       grid-gap: 1em;
 
-    }
-    *{
-      overflow-x: hidden;
-      overflow-y: hidden;
     }`
     document.getElementById('grid-style').innerHTML = style;
     multiplyPlots(width*height);
