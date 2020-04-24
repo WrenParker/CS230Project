@@ -7,9 +7,5 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/WrenParker/CS230Project.git"
-    },
-    "dependencies": {
-        "bootstrap": "4.3.1",
-        "jquery": "3.4.1"
     }
 }

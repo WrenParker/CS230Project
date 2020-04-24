@@ -16,6 +16,53 @@ create_garden = `
   </div>
   </div>
   <div class="create-wrapper">
+    <div class="settings pt-3">
+      <div class="card">
+        <div class="card-header text-center">
+          <h3 class="pt-2">Settings</h3>
+        </div>
+        <div class="card-body">
+          <div class="row pt-3">
+            <div class="col-sm-4 pt-1">
+              <h4>Size:</h4>
+            </div>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" id="width" name="" value="10">
+            </div>
+            <div class="col-sm-2 pt-2">
+              <h6>X</h6>
+            </div>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" id="height" name="" value="10">
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class="col-sm-4 pt-1">
+              <h4>Seed:</h4>
+            </div>
+            <div class="col-sm-8">
+              <div class="dropdown">
+                <button type="button" id="dropdown" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Corn
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-divider"></div>
+                  <span class="dropdown-item-text">Recommended</span>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" onClick="changeColor(this)">Grass</a>
+                  <div class="dropdown-divider"></div>
+                  <span class="dropdown-item-text">All</span>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" onClick="changeColor(this)">Grass</a>
+                  <a class="dropdown-item" onClick="changeColor(this)">Strawberry</a>
+                  <a class="dropdown-item" onClick="changeColor(this)">Corn</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="grid pt-2" id="garden-grid">
       <div class="plot" id="garden-plot" onClick="fill(this)">
         <div class="content ml-5 mt-3">
@@ -99,7 +146,7 @@ function multiplyPlots() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("body").innerHTML = create_garden;
+document.getElementById("body").innerHTML = create_garden;
   multiplyPlots();
 });
 
@@ -108,12 +155,32 @@ document.getElementById("create-btn").addEventListener("click", function(){
   multiplyPlots();
 });
 
+let currentColor = 'blue';
 
 function fill(e) {
-  if(e.style.backgroundColor == 'blue') {
+  if(e.style.backgroundColor == currentColor) {
     e.style.backgroundColor = '';
   } else if(e.style.backgroundColor == '') {
-    e.style.backgroundColor = 'blue';
+    e.style.backgroundColor = currentColor;
+  }
+}
+
+function changeColor(e) {
+  let button = document.getElementById("dropdown");
+  if(e.innerHTML==="Grass") {
+    currentColor = 'green';
+    button.innerHTML = "Grass";
+
+  }
+  if(e.innerHTML==="Corn") {
+    currentColor = 'blue';
+    button.innerHTML = "Corn";
+
+  }
+  if(e.innerHTML==="Strawberry") {
+    currentColor = 'red';
+    button.innerHTML = "Strawberry";
+
   }
 }
 
